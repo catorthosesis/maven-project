@@ -9,9 +9,9 @@ pipeline {
     stages {
 
         stage('Build') {
-            when {
+          /*  when {
                 anyOf { branch 'main/*'; branch 'master' }
-            }
+            }*/
 
             steps {
                 echo "${params.RELEASE}....."
@@ -22,6 +22,9 @@ pipeline {
                 }
                 echo "executing ....${params.RELEASE}"
                 echo "Building .....${params.Name}"
+                echo "Build ${env.BUILD_ID}"
+                sh "mvn clean package"
+                sh "docker build . -t tomcatwebapp:${env.BUILD_ID} "
 
                          }
             post {
