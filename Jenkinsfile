@@ -8,6 +8,12 @@ pipeline {
             steps {
                 echo "Building ....."
             }
+            post {
+                success {
+                    echo "Will execute ... "
+                }
+
+                }
         }
 
         stage('Test') {
