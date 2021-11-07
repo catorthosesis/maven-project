@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build') {
             when {
-                anyOf { branch 'main'; branch 'master' }
-                expression { params.RELEASE }
+                anyOf { branch 'main/*'; branch 'master' }
             }
 
-
-
             steps {
+                echo "${params.RELEASE}....."
+                def val = expression { params.RELEASE}
+                echo ${val}
                 timeout(time:40, unit: 'DAYS') {
                     input message: "Approve this build?"
                     echo "Inside time out "
