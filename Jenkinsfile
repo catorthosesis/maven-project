@@ -13,13 +13,14 @@ pipeline {
                 expression { params.RELEASE }
             }
 
-            echo "executing ....${params.RELEASE}"
+
 
             steps {
                 timeout(time:40, unit: 'DAYS') {
                     input message: "Approve this build?"
                     echo "Inside time out "
                 }
+                echo "executing ....${params.RELEASE}"
                 echo "Building .....${params.Name}"
 
                          }
