@@ -9,9 +9,6 @@ pipeline {
     stages {
 
         stage('Build') {
-          /*  when {
-                anyOf { branch 'main/*'; branch 'master' }
-            }*/
 
             steps {
                 echo "${params.RELEASE}....."
