@@ -8,6 +8,12 @@ pipeline {
     stages {
 
         stage('Build') {
+            when {
+                anyOf { branch 'main'; branch 'hotfix/*';branch 'master' }
+                expression { params.RELEASE }
+            }
+            echo "executing ....${params.RELEASE}"
+
             steps {
                 timeout(time:40, unit: 'DAYS') {
                     input message: "Approve this build?"
@@ -15,12 +21,7 @@ pipeline {
                 }
                 echo "Building .....${params.Name}"
 
-                when {
-                    anyOf { branch 'main'; branch 'hotfix/*';branch 'master' }
-                    expression { params.RELEASE }
-                }
-                echo "executing ....${params.RELEASE}"
-            }
+                         }
             post {
                 success {
                     echo "Will execute ... "
