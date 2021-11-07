@@ -4,7 +4,7 @@ pipeline {
     agent any
     parameters {
         string(name: 'Name', defaultValue: 'George ', description: 'hello world')
-        string(name: 'RELEASE', defaultValue: '', description: 'hello world')
+        string(name: 'RELEASE', defaultValue: 'MYRELEASE', description: 'hello world')
     }
     stages {
 
