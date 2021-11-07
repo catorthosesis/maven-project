@@ -3,7 +3,7 @@ pipeline {
 
     agent any
     parameters {
-        string(name: 'dsfsd', defaultValue: 'George ', description: 'hello world')
+        string(name: 'Name', defaultValue: 'George ', description: 'hello world')
     }
     stages {
 
@@ -13,7 +13,13 @@ pipeline {
                     input message: "Approve this build?"
                     echo "Inside time out "
                 }
-                echo "Building .....${params.name}"
+                echo "Building .....${params.Name}"
+
+                when {
+                    anyOf { branch 'main'; branch 'hotfix/*';branch 'master' }
+                    expression { params.RELEASE }
+                }
+                echo "executing ....${params.RELEASE}"
             }
             post {
                 success {
