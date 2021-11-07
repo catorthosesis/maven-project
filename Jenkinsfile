@@ -15,8 +15,7 @@ pipeline {
 
             steps {
                 echo "${params.RELEASE}....."
-                def val = expression { params.RELEASE}
-                echo ${val}
+
                 timeout(time:40, unit: 'DAYS') {
                     input message: "Approve this build?"
                     echo "Inside time out "
