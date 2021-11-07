@@ -7,7 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 timeout(time:40, unit: 'DAYS') {
-                    echo "Inside time out"
+                    input message: "Approve this build?"
+                    echo "Inside time out "
                 }
                 echo "Building ....."
             }
