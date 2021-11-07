@@ -6,7 +6,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                timeout(time:40, unit: 'SECONDS') {
+                timeout(time:40, unit: 'DAYS') {
                     echo "Inside time out"
                 }
                 echo "Building ....."
