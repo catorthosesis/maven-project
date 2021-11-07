@@ -3,7 +3,7 @@ pipeline {
 
     agent any
     parameters {
-        string(name: 'dsfsd', defaultvalue: 'George ', discription: 'hello world')
+        string(name: 'dsfsd', defaultValue: 'George ', description: 'hello world')
     }
     stages {
 
