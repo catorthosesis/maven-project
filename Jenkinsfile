@@ -9,9 +9,10 @@ pipeline {
 
         stage('Build') {
             when {
-                anyOf { branch 'main'; branch 'hotfix/*';branch 'master' }
+                anyOf { branch 'main'; branch 'master' }
                 expression { params.RELEASE }
             }
+
             echo "executing ....${params.RELEASE}"
 
             steps {
