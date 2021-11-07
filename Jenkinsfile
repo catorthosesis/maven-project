@@ -13,8 +13,13 @@ pipeline {
                     echo "Will execute ... "
                 }
 
+                failure {
+                    echo "Will not execute.... "
+                }
+
                 }
         }
+
 
         stage('Test') {
             steps {
