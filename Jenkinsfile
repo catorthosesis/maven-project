@@ -21,7 +21,7 @@ pipeline {
                 echo "Building .....${params.Name}"
                 echo "Build ${env.BUILD_ID}"
                 sh "mvn clean package"
-                sh "docker build . -t tomcatwebapp:${env.BUILD_ID} "
+                sh "sudo docker build . -t tomcatwebapp:${env.BUILD_ID} "
 
                          }
             post {
