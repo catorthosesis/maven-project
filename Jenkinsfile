@@ -2,6 +2,9 @@
 pipeline {
 
     agent any
+    parameters {
+        strings(name: 'dsfsd', defaultvalue: '', discription: 'hello world')
+    }
     stages {
 
         stage('Build') {
@@ -10,7 +13,7 @@ pipeline {
                     input message: "Approve this build?"
                     echo "Inside time out "
                 }
-                echo "Building ....."
+                echo "Building .....$name"
             }
             post {
                 success {
